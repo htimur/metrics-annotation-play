@@ -11,9 +11,8 @@ object AnnotationProvider {
 }
 
 class AnnotationProvider(matchers: List[AnnotationMatcher]) {
-  class From[T <: Annotation: Manifest] {
-    def from(method: Method): Option[T] =
-      matchers.map(_.get[T](method)).filter(_ != null).head
+  class From[T <: Annotation : Manifest] {
+    def from(method: Method): Option[T] = matchers.flatMap(_.get[T](method)).headOption
   }
 
   def get[T <: Annotation : Manifest]: From[T] = new From[T]

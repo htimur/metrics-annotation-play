@@ -14,20 +14,6 @@ class AnnotationProviderSpec extends FlatSpec with Matchers {
     val protectedMethod = klass.getDeclaredMethod("protectedMethod")
     val packagePrivateMethod = klass.getDeclaredMethod("packagePrivateMethod")
 
-    /**
-      * assertNotNull(annotationProvider.getAnnotation(classOf[Timed], publicMethod))
-      * assertNull(annotationProvider.getAnnotation(classOf[Metered], publicMethod))
-      * assertNull(annotationProvider.getAnnotation(classOf[Counted], publicMethod))
-      * *
-      * assertNotNull(annotationProvider.getAnnotation(classOf[Timed], protectedMethod))
-      * assertNotNull(annotationProvider.getAnnotation(classOf[Metered], protectedMethod))
-      * assertNull(annotationProvider.getAnnotation(classOf[Counted], protectedMethod))
-      * *
-      * assertNotNull(annotationProvider.getAnnotation(classOf[Timed], packagePrivateMethod))
-      * assertNull(annotationProvider.getAnnotation(classOf[Metered], packagePrivateMethod))
-      * assertNull(annotationProvider.getAnnotation(classOf[Counted], packagePrivateMethod))
-      */
-
     annotationProvider.get[Timed].from(publicMethod) should not be empty
     annotationProvider.get[Timed].from(protectedMethod) should not be empty
     annotationProvider.get[Timed].from(packagePrivateMethod) should not be empty
