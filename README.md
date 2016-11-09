@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/htimur/metrics-annotation-play.svg?branch=master)](https://travis-ci.org/htimur/metrics-annotation-play)
+[![Download](https://api.bintray.com/packages/htimur/maven/metrics-annotaion-play/images/download.svg) ](https://bintray.com/htimur/maven/metrics-annotaion-play/_latestVersion)
 
 # Metrics Annotation Support for Play Framework
 Metrics Annotations Support for Play Framework through Guice AOP. Inspired by [Dropwizard Metrics Guice](https://github.com/palominolabs/metrics-guice). 
@@ -13,7 +14,26 @@ Metrics Annotations Support for Play Framework through Guice AOP. Inspired by [D
 
 Artifacts are released in [Bintray](https://bintray.com/). For gradle, use the `jcenter()` repository. For maven, [go here](https://bintray.com/bintray/jcenter?filterByPkgName=com.palominolabs.metrics%3Ametrics-guice) and click "Set me up".
 
+SBT:
+
+```scala
+libraryDependencies += "de.khamrakulov" %% "metrics-annotaion-play" % "1.0.0"
+```
+
 Maven:
+```xml
+<dependency>
+  <groupId>de.khamrakulov</groupId>
+  <artifactId>metrics-annotaion-play_2.11</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
+
+Gradle:
+```groovy
+compile 'de.khamrakulov:metrics-annotaion-play_2.11:1.0.0'
+```
 
 ### Install the module
 
@@ -24,7 +44,7 @@ play.modules.enabled += "de.khamrakulov.play.metrics.annotation.MetricsAnnotatio
 
 ### Use it
 
-The `MetricsInstrumentationModule` you installed above will create and appropriately invoke a [Timer](https://dropwizard.github.io/metrics/3.1.0/manual/core/#timers) for `@Timed` methods, a [Meter](https://dropwizard.github.io/metrics/3.1.0/manual/core/#meters) for `@Metered` methods, a [Counter](https://dropwizard.github.io/metrics/3.1.0/manual/core/#counters) for `@Counted` methods, and a [Gauge](https://dropwizard.github.io/metrics/3.1.0/manual/core/#gauges) for `@Gauge` methods. `@ExceptionMetered` is also supported; this creates a `Meter` that measures how often a method throws exceptions.
+The `MetricsAnnotationModule` you installed above will create and appropriately invoke a [Timer](https://dropwizard.github.io/metrics/3.1.0/manual/core/#timers) for `@Timed` methods, a [Meter](https://dropwizard.github.io/metrics/3.1.0/manual/core/#meters) for `@Metered` methods, a [Counter](https://dropwizard.github.io/metrics/3.1.0/manual/core/#counters) for `@Counted` methods, and a [Gauge](https://dropwizard.github.io/metrics/3.1.0/manual/core/#gauges) for `@Gauge` methods. `@ExceptionMetered` is also supported; this creates a `Meter` that measures how often a method throws exceptions.
 
 The annotations have some configuration options available for metric name, etc. You can also provide a custom `MetricNamer` implementation if the default name scheme does not work for you.
 
@@ -57,6 +77,32 @@ However, if you're instantiating that class with Guice, you could just do this:
 @Timed
 def doSomethingImportant = {
     // critical business logic
+}
+```
+or this:
+
+```scala
+@Timed
+class SuperCriticalFunctionality {
+    def doSomethingImportant = {
+        // critical business logic
+    }
+}
+```
+
+### Type level annotations
+
+Type level supported is implemented for: `Timed`, `Metered`, `Counted` and `ExceptionMetered` annotations.
+
+### Configuration
+
+```hocon
+metrics-annotation {
+  metric-namer = "de.khamrakulov.play.metrics.annotation.DefaultMetricNamer" //Metric namer implementation
+  annotation-matchers = [//Annotation matchers, to derrive annotations from type 
+    "de.khamrakulov.play.metrics.annotation.matcher.ClassAnnotationMatcher",
+    "de.khamrakulov.play.metrics.annotation.matcher.MethodAnnotationMatcher",
+  ]
 }
 ```
 
