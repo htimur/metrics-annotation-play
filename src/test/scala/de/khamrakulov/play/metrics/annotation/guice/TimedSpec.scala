@@ -22,7 +22,6 @@ class TimedSpec extends FlatSpec with Matchers with GuiceInjectorHelper {
     metric.getCount shouldBe 1L
 
     metric.getSnapshot.getMax should be > NANOSECONDS.convert(5, MILLISECONDS)
-    metric.getSnapshot.getMax should be < NANOSECONDS.convert(20, MILLISECONDS)
   }
 
   it should "create metrics for annotated class" in {
