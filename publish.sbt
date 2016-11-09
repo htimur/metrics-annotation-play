@@ -1,9 +1,9 @@
-publishMavenStyle := false
+publishMavenStyle in bintray := false
 
-bintrayRepository := "metrics-annotaion-play"
+bintrayRepository in bintray := "de.khamrakulov"
 
-bintrayOrganization in bintray := Some("de.khamrakulov")
+bintrayOrganization in bintray := Some("khamrakulov")
 
-bintrayReleaseOnPublish := isSnapshot.value
+bintrayReleaseOnPublish in bintray := isSnapshot.value
 
-licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
+licenses  += ("MIT", url("http://opensource.org/licenses/MIT"))
