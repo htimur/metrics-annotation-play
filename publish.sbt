@@ -1,8 +1,8 @@
 publishMavenStyle in bintray := false
 
-bintrayRepository in bintray := "de.khamrakulov"
+bintrayRepository in bintray := "maven"
 
-bintrayOrganization in bintray := Some("khamrakulov")
+bintrayOrganization in bintray := Some("htimur")
 
 bintrayReleaseOnPublish in bintray := isSnapshot.value
 
