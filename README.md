@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/htimur/metrics-annotation-play.svg?branch=master)](https://travis-ci.org/htimur/metrics-annotation-play)
-[![Download](https://api.bintray.com/packages/htimur/maven/metrics-annotaion-play/images/download.svg) ](https://bintray.com/htimur/maven/metrics-annotaion-play/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/htimur/maven/metrics-annotation-play/images/download.svg) ](https://bintray.com/htimur/maven/metrics-annotation-play/_latestVersion)
 
 # Metrics Annotation Support for Play Framework
 Metrics Annotations Support for Play Framework through Guice AOP. Inspired by [Dropwizard Metrics Guice](https://github.com/palominolabs/metrics-guice). 
