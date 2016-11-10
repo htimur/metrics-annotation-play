@@ -1,4 +1,4 @@
-name := "metrics-annotaion-play"
+name := "metrics-annotation-play"
 organization := "de.khamrakulov"
 
 scalaVersion := "2.11.8"
