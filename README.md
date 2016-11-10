@@ -17,14 +17,14 @@ Artifacts are released in [Bintray](https://bintray.com/). For sbt, use `resolve
 SBT:
 
 ```scala
-libraryDependencies += "de.khamrakulov" %% "metrics-annotaion-play" % "1.0.0"
+libraryDependencies += "de.khamrakulov" %% "metrics-annotation-play" % "1.0.0"
 ```
 
 Maven:
 ```xml
 <dependency>
   <groupId>de.khamrakulov</groupId>
-  <artifactId>metrics-annotaion-play_2.11</artifactId>
+  <artifactId>metrics-annotation-play_2.11</artifactId>
   <version>1.0.0</version>
   <type>pom</type>
 </dependency>
@@ -32,7 +32,7 @@ Maven:
 
 Gradle:
 ```groovy
-compile 'de.khamrakulov:metrics-annotaion-play_2.11:1.0.0'
+compile 'de.khamrakulov:metrics-annotation-play_2.11:1.0.0'
 ```
 
 ### Install the module
