@@ -6,7 +6,8 @@ Metrics Annotations Support for Play Framework through Guice AOP. Inspired by [D
 
 ## Dependencies
 
-* [metrics-play](https://github.com/breadfan/metrics-play)
+* [Play Framework](https://github.com/playframework/playframework)
+* [metrics-reporter-play](https://github.com/htimur/metrics-reporter-play)
 
 # Quick Start
 
@@ -17,7 +18,11 @@ Artifacts are released in [Bintray](https://bintray.com/). For sbt, use `resolve
 SBT:
 
 ```scala
-libraryDependencies += "de.khamrakulov" %% "metrics-annotation-play" % "1.0.2"
+libraryDependencies += Seq(
+  "com.typesafe.play" %% "play" % "2.5.3",
+  "de.khamrakulov.metrics-reporter-play" %% "reporter-core" % "1.0.0",
+  "de.khamrakulov" %% "metrics-annotation-play" % "1.0.2"
+)
 ```
 
 Maven:
@@ -35,12 +40,7 @@ Gradle:
 compile 'de.khamrakulov:metrics-annotation-play_2.11:1.0.2'
 ```
 
-### Install the module
-
-```hocon
-// in your application.conf file
-play.modules.enabled += "de.khamrakulov.play.metrics.annotation.MetricsAnnotationModule"
-```
+The module will be automatically enabled.
 
 ### Use it
 
@@ -97,12 +97,14 @@ Type level supported is implemented for: `Timed`, `Metered`, `Counted` and `Exce
 ### Configuration
 
 ```hocon
-metrics-annotation {
-  metric-namer = "de.khamrakulov.play.metrics.annotation.DefaultMetricNamer" //Metric namer implementation
-  annotation-matchers = [//Annotation matchers, to derrive annotations from type 
-    "de.khamrakulov.play.metrics.annotation.matcher.ClassAnnotationMatcher",
-    "de.khamrakulov.play.metrics.annotation.matcher.MethodAnnotationMatcher",
-  ]
+metrics {
+  annotation {
+    metric-namer = "de.khamrakulov.play.metrics.annotation.DefaultMetricNamer" //Metric namer implementation
+    annotation-matchers = [ //Annotation matchers, to derrive annotations from type
+      "de.khamrakulov.play.metrics.annotation.matcher.ClassAnnotationMatcher",
+      "de.khamrakulov.play.metrics.annotation.matcher.MethodAnnotationMatcher",
+    ]
+  }
 }
 ```
 

@@ -17,11 +17,14 @@ package object annotation {
   }
 
   private[metrics] class MetricsAnnotationConfiguration(env: Environment, conf: Configuration) {
-    private val rootConfig: String = "metrics-annotation"
-    val registryName = conf.getString("metrics.name").getOrElse("default")
+    private val rootConfig = "metrics.annotation"
+    val registryName = conf.getString("metrics.registry").getOrElse("default")
     val registry = SharedMetricRegistries.getOrCreate(registryName)
     val matcher = Matchers.any()
-    val namer = env.classLoader.loadClass(conf.getString(s"$rootConfig.metric-namer").get).newInstance().asInstanceOf[MetricNamer]
+
+    val namerPath = conf.getString(s"$rootConfig.metric-namer").get
+    val namer = env.classLoader.loadClass(namerPath).newInstance().asInstanceOf[MetricNamer]
+
     val annotationMatchers: List[AnnotationMatcher] =
       conf.getStringList(s"$rootConfig.annotation-matchers")
         .get

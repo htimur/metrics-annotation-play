@@ -7,6 +7,7 @@ import com.codahale.metrics.MetricRegistry.{name => MetricName}
 import com.codahale.metrics.annotation._
 
 /**
+  * TODO rewrite
   * @author Timur Khamrakulov <timur.khamrakulov@gmail.com>.
   */
 trait MetricNamer {

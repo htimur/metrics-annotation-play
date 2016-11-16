@@ -14,7 +14,7 @@ package object guice {
   trait GuiceInjectorHelper {
     val env = Environment.simple()
     val registryName = s"registry${scala.util.Random.nextInt()}"
-    val config = Configuration.load(env, Map("metrics.name" -> registryName))
+    val config = Configuration.load(env, Map("metrics.registry" -> registryName))
     val injector = Guice.createInjector(new MetricsAnnotationModule(env, config))
     val registry = SharedMetricRegistries.getOrCreate(registryName)
 
