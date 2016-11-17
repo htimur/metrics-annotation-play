@@ -44,7 +44,7 @@ The module will be automatically enabled.
 
 ### Use it
 
-The `MetricsAnnotationModule` you installed above will create and appropriately invoke a [Timer](https://dropwizard.github.io/metrics/3.1.0/manual/core/#timers) for `@Timed` methods, a [Meter](https://dropwizard.github.io/metrics/3.1.0/manual/core/#meters) for `@Metered` methods, a [Counter](https://dropwizard.github.io/metrics/3.1.0/manual/core/#counters) for `@Counted` methods, and a [Gauge](https://dropwizard.github.io/metrics/3.1.0/manual/core/#gauges) for `@Gauge` methods. `@ExceptionMetered` is also supported; this creates a `Meter` that measures how often a method throws exceptions.
+The `MetricsAnnotationModule` you installed above will create and appropriately invoke a [Timer](https://dropwizard.github.io/metrics/3.1.0/manual/core/#timers) for `@Timed`, a [Meter](https://dropwizard.github.io/metrics/3.1.0/manual/core/#meters) for `@Metered`, a [Counter](https://dropwizard.github.io/metrics/3.1.0/manual/core/#counters) for `@Counted`, and a [Gauge](https://dropwizard.github.io/metrics/3.1.0/manual/core/#gauges) for `@Gauge`. `@ExceptionMetered` is also supported; this creates a `Meter` that measures how often a method throws exceptions.
 
 The annotations have some configuration options available for metric name, etc. You can also provide a custom `MetricNamer` implementation if the default name scheme does not work for you.
 
@@ -92,7 +92,7 @@ class SuperCriticalFunctionality {
 
 ### Type level annotations
 
-Type level supported is implemented for: `Timed`, `Metered`, `Counted` and `ExceptionMetered` annotations.
+Type level annotation support is implemented for: `Timed`, `Metered`, `Counted` and `ExceptionMetered` annotations.
 
 ### Configuration
 
