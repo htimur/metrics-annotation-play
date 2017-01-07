@@ -19,8 +19,6 @@ SBT:
 
 ```scala
 libraryDependencies += Seq(
-  "com.typesafe.play" %% "play" % "2.5.3",
-  "de.khamrakulov.metrics-reporter-play" %% "reporter-core" % "1.0.0",
   "de.khamrakulov" %% "metrics-annotation-play" % "1.0.2"
 )
 ```
