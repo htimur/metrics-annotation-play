@@ -11,7 +11,7 @@ val metricsVersion = "3.1.2"
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play" % "2.5.10" % Provided,
-  "io.dropwizard.metrics" % "metrics-core" % "3.1.2",
+  "io.dropwizard.metrics" % "metrics-core" % metricsVersion % Provided,
   "io.dropwizard.metrics" % "metrics-annotation" % metricsVersion,
 
 //test

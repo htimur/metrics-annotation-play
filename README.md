@@ -7,7 +7,7 @@ Metrics Annotations Support for Play Framework through Guice AOP. Inspired by [D
 ## Dependencies
 
 * [Play Framework](https://github.com/playframework/playframework)
-* [metrics-reporter-play](https://github.com/htimur/metrics-reporter-play)
+* [metrics-core](http://metrics.dropwizard.io/3.2.0/)
 
 # Quick Start
 
@@ -19,26 +19,45 @@ SBT:
 
 ```scala
 libraryDependencies += Seq(
-  "de.khamrakulov" %% "metrics-annotation-play" % "1.0.2"
+  "com.typesafe.play" %% "play" % "2.5.10",
+  "io.dropwizard.metrics" % "metrics-core" % "3.1.2",
+  "de.khamrakulov" %% "metrics-annotation-play" % "1.0.3"
 )
 ```
 
 Maven:
 ```xml
-<dependency>
-  <groupId>de.khamrakulov</groupId>
-  <artifactId>metrics-annotation-play_2.11</artifactId>
-  <version>1.0.2</version>
-  <type>pom</type>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>com.typesafe.play</groupId>
+    <artifactId>play_2.11</artifactId>
+    <version>2.5.10</version>
+  </dependency>
+  <dependency>
+    <groupId>io.dropwizard.metrics</groupId>
+    <artifactId>metrics-core</artifactId>
+    <version>3.1.2</version>
+  </dependency>
+  <dependency>
+    <groupId>de.khamrakulov</groupId>
+    <artifactId>metrics-annotation-play_2.11</artifactId>
+    <version>1.0.3</version>
+  </dependency>
+</dependencies>
 ```
 
 Gradle:
 ```groovy
-compile 'de.khamrakulov:metrics-annotation-play_2.11:1.0.2'
+compile 'com.typesafe.play:play:2.5.10'
+compile 'io.dropwizard.metrics:metrics-core:3.1.2'
+compile 'de.khamrakulov:metrics-annotation-play_2.11:1.0.3'
 ```
 
-The module will be automatically enabled.
+Enable `MetricsAnnotationModule` module in your application configuration
+
+```
+play.modules.enabled += "de.khamrakulov.play.metrics.annotation.MetricsAnnotationModule"
+```
 
 ### Use it
 
